@@ -2,7 +2,7 @@ module top (
     input clk,
     input btn1,
     input btn2,
-    output [5:0]led,
+    output [5:0]led
 );
 
 
@@ -14,13 +14,17 @@ reg [0:0] last_signal_btn2 = 0;
 
 reg [23:0] repeticoes_signal_btn1 = 0;
 reg [23:0] repeticoes_signal_btn2 = 0;
-reg [7:0] data;
+wire [5:0] spi_rx;
 
 //assign data = {0,0,contador_led};
 
 reg start;
 reg reset_r;
 wire txdone;
+wire spi_clk;
+wire mosi;
+wire miso;
+wire cs;
 
 initial begin
     reset_r = 0;
@@ -33,9 +37,19 @@ spi_master my_spi(
     .mosi(mosi),
     .miso(miso),
     .cs(cs),
-    .tx_data(data),
+    .tx_data(contador_led),
     .start_tx(start),
     .tx_done(txdone)
+);
+
+spi_slave my_slave(
+    .reset(reset_r),
+    .clk(clk),
+    .spi_clk(spi_clk),
+    .mosi(mosi),
+    .miso(miso),
+    .cs(cs),
+    .output_data(spi_rx)
 );
 
 always @(posedge clk ) begin
@@ -82,6 +96,6 @@ always @(posedge clk ) begin
     end
 end
     
-assign led = ~contador_led;
+assign led = ~spi_rx;
 
 endmodule

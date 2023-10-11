@@ -5,8 +5,8 @@ module spi_master (
     output mosi, // master output slave input
     input miso, // master input slave output
     output cs, // chip select
-    input [7:0] tx_data, 
-    output [7:0] rx_data,
+    input [5:0] tx_data, 
+    output [5:0] rx_data,
     input start_tx, // Sinal para iniciar a transmissão
     output tx_done,  // Sinal indicando que a transmissão está concluída
     output rx_done
@@ -18,7 +18,7 @@ localparam RECEIVING = 3'b010;
 
 reg [2:0] state; // Registrador que armazena o estado atual da maquina de estado
 reg [5:0] bit_counter;
-reg [7:0] spi_data, output_data;
+reg [5:0] spi_data, output_data;
 
 reg sck, mosi_r, tx_done_r, rx_done_r, cs_r;
 
@@ -37,7 +37,7 @@ assign cs = cs_r;
 always @(posedge clk or negedge reset ) begin
     if(!reset) begin 
         sck <= 0;
-        spi_data <= 8'h00;
+        spi_data <= 6'h00;
         mosi_r <= 0;
         state <= IDLE;
         tx_done_r <= 0;
@@ -51,7 +51,7 @@ always @(posedge clk or negedge reset ) begin
 
                 if(start_tx) begin
                     spi_data <= tx_data;
-                    state = SENDING;
+                    state <= SENDING;
                 end
             end
 
@@ -59,16 +59,16 @@ always @(posedge clk or negedge reset ) begin
                 sck <= ~clk;
                 if(bit_counter == 0) begin
                     cs_r <= 0;
-                    mosi_r <= spi_data[7];
-                    spi_data <= {spi_data[6:0], 1'b1};
-                end else if(bit_counter == 8) begin
+                    mosi_r <= spi_data[5];
+                    spi_data <= {spi_data[4:0], 1'b1};
+                end else if(bit_counter == 6) begin
                     cs_r <= 1;
                     bit_counter <= 0;
                     tx_done_r <= 1;
                     state <= IDLE;
                 end else begin
-                    mosi_r <= spi_data[7];
-                    spi_data <= {spi_data[6:0], 1'b1};
+                    mosi_r <= spi_data[5];
+                    spi_data <= {spi_data[4:0], 1'b1};
                     bit_counter <= bit_counter + 1;
                 end
             end
@@ -77,15 +77,15 @@ always @(posedge clk or negedge reset ) begin
                 sck <= ~clk;
                 if(bit_counter == 0) begin
                     cs_r <= 0;
-                    output_data[7] <= miso;
-                end else if(bit_counter == 8) begin
+                    output_data[5] <= miso;
+                end else if(bit_counter == 6) begin
                     cs_r <= 1;
                     bit_counter <= 0;
                     rx_done_r <= 1;
                     state <= IDLE;
                 end else begin
-                    output_data <= {1'b1, output_data[7:1]};
-                    output_data[7] <= miso;
+                    output_data <= {1'b1, output_data[5:1]};
+                    output_data[5] <= miso;
                     bit_counter <= bit_counter + 1;
                 end
             end

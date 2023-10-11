@@ -35,10 +35,7 @@ spi_master my_spi(
     .mosi(mosi),
     .miso(miso),
     .cs(cs),
-    .tx_data(
-        
-        
-    ),
+    .tx_data(data),
     .start_tx(start),
     .tx_done(txdone)
 );

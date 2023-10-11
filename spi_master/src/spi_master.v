@@ -51,7 +51,7 @@ always @(posedge clk or negedge reset ) begin
 
                 if(start_tx) begin
                     spi_data <= tx_data;
-                    state = SENDING;
+                    state <= SENDING;
                 end
             end
 
