@@ -1,0 +1,1478 @@
+{
+  "creator": "Next Generation Place and Route (Version nextpnr-0.6-29-g54b20457)",
+  "modules": {
+    "top": {
+      "settings": {
+        "route": "00000000000000000000000000000001",
+        "router/tmg_ripup": "0 ",
+        "router1/useEstimate": "1 ",
+        "router1/fullCleanupReroute": "1 ",
+        "router1/cleanupReroute": "1 ",
+        "router1/maxIterCnt": "200",
+        "place": "00000000000000000000000000000001",
+        "placer1/startTemp": "1.000000",
+        "placer1/minBelsForGridPick": "64",
+        "placer1/netShareWeight": "0.000000",
+        "placer1/constraintWeight": "10.000000",
+        "placerHeap/cellPlacementTimeout": "8",
+        "placerHeap/netShareWeight": "0.000000",
+        "placerHeap/parallelRefine": "0 ",
+        "pack": "00000000000000000000000000000001",
+        "cst": "00000000000000000000000000000001",
+        "synth": "00000000000000000000000000000001",
+        "placerHeap/timingWeight": "10 ",
+        "placerHeap/criticalityExponent": "2",
+        "placerHeap/beta": "0.900000",
+        "placerHeap/alpha": "0.100000",
+        "seed": "01010011010110001001011110010011",
+        "arch.type": "none",
+        "arch.name": "ARCHNAME",
+        "router": "router1",
+        "placer": "heap",
+        "auto_freq": "00000000000000000000000000000000",
+        "slack_redist_iter": "00000000000000000000000000000000",
+        "timing_driven": "00000000000000000000000000000001",
+        "target_freq": "27000000.000000",
+        "arch.enable-auto-longwires": "00000000000000000000000000000000",
+        "arch.enable-globals": "00000000000000000000000000000001"
+      },
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:1.1-25.10"
+      },
+      "ports": {
+        "num2": {
+          "direction": "input",
+          "bits": [ 1704380608, 1704390752, 1344375984, 1344376304, 1704389584, 1704383360, 1704382192, 1704379440 ]
+        },
+        "num1": {
+          "direction": "input",
+          "bits": [ 1803881680, 3878914, 1705290544, 1704373824, 3878915, 3877845, 1704423536, 1344376256 ]
+        },
+        "leds": {
+          "direction": "output",
+          "bits": [ 3878916, 1344376144, 3878917, 3878918, 1267090976, 0, 1704327648, 1704325072 ]
+        },
+        "clk": {
+          "direction": "input",
+          "bits": [ 3877725 ]
+        }
+      },
+      "cells": {
+        "leds_OBUF_O_I_ALU_SUM_HEAD_ALULC": {
+          "hide_name": 0,
+          "type": "SLICE",
+          "parameters": {
+            "ALU_MODE": "C2L",
+            "FF_TYPE": "DFF",
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "R26C32_SLICE0"
+          },
+          "port_directions": {
+            "LSR": "input",
+            "CE": "input",
+            "Q": "output",
+            "F": "output",
+            "CLK": "input",
+            "D": "input",
+            "C": "input",
+            "B": "input",
+            "A": "input"
+          },
+          "connections": {
+            "LSR": [  ],
+            "CE": [  ],
+            "Q": [  ],
+            "F": [  ],
+            "CLK": [  ],
+            "D": [  ],
+            "C": [ 3877857 ],
+            "B": [  ],
+            "A": [  ]
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_1_DUMMY_ALULC": {
+          "hide_name": 0,
+          "type": "SLICE",
+          "parameters": {
+            "ALU_MODE": "C2L",
+            "FF_TYPE": "DFF",
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "R26C33_SLICE3"
+          },
+          "port_directions": {
+            "LSR": "input",
+            "CE": "input",
+            "Q": "output",
+            "F": "output",
+            "CLK": "input",
+            "D": "input",
+            "C": "input",
+            "B": "input",
+            "A": "input"
+          },
+          "connections": {
+            "LSR": [  ],
+            "CE": [  ],
+            "Q": [  ],
+            "F": [  ],
+            "CLK": [  ],
+            "D": [  ],
+            "C": [  ],
+            "B": [  ],
+            "A": [  ]
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_1_ALULC": {
+          "hide_name": 0,
+          "type": "SLICE",
+          "parameters": {
+            "ALU_MODE": "00000000000000000000000000000010",
+            "FF_TYPE": "DFF",
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "R26C33_SLICE2"
+          },
+          "port_directions": {
+            "LSR": "input",
+            "CE": "input",
+            "Q": "output",
+            "F": "output",
+            "CLK": "input",
+            "D": "input",
+            "C": "input",
+            "B": "input",
+            "A": "input"
+          },
+          "connections": {
+            "LSR": [  ],
+            "CE": [  ],
+            "Q": [  ],
+            "F": [ 3877734 ],
+            "CLK": [  ],
+            "D": [ 3877857 ],
+            "C": [ 3877857 ],
+            "B": [ 3877770 ],
+            "A": [ 3877769 ]
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_2_ALULC": {
+          "hide_name": 0,
+          "type": "SLICE",
+          "parameters": {
+            "ALU_MODE": "00000000000000000000000000000010",
+            "FF_TYPE": "DFF",
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "R26C33_SLICE1"
+          },
+          "port_directions": {
+            "LSR": "input",
+            "CE": "input",
+            "Q": "output",
+            "F": "output",
+            "CLK": "input",
+            "D": "input",
+            "C": "input",
+            "B": "input",
+            "A": "input"
+          },
+          "connections": {
+            "LSR": [  ],
+            "CE": [  ],
+            "Q": [  ],
+            "F": [ 3877737 ],
+            "CLK": [  ],
+            "D": [ 3877857 ],
+            "C": [ 3877857 ],
+            "B": [ 3877775 ],
+            "A": [ 3877774 ]
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_3_ALULC": {
+          "hide_name": 0,
+          "type": "SLICE",
+          "parameters": {
+            "ALU_MODE": "00000000000000000000000000000010",
+            "FF_TYPE": "DFF",
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "R26C33_SLICE0"
+          },
+          "port_directions": {
+            "LSR": "input",
+            "CE": "input",
+            "Q": "output",
+            "F": "output",
+            "CLK": "input",
+            "D": "input",
+            "C": "input",
+            "B": "input",
+            "A": "input"
+          },
+          "connections": {
+            "LSR": [  ],
+            "CE": [  ],
+            "Q": [  ],
+            "F": [ 3877740 ],
+            "CLK": [  ],
+            "D": [ 3877857 ],
+            "C": [ 3877857 ],
+            "B": [ 3877780 ],
+            "A": [ 3877779 ]
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_4_ALULC": {
+          "hide_name": 0,
+          "type": "SLICE",
+          "parameters": {
+            "ALU_MODE": "00000000000000000000000000000010",
+            "FF_TYPE": "DFF",
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "R26C32_SLICE5"
+          },
+          "port_directions": {
+            "LSR": "input",
+            "CE": "input",
+            "Q": "output",
+            "F": "output",
+            "CLK": "input",
+            "D": "input",
+            "C": "input",
+            "B": "input",
+            "A": "input"
+          },
+          "connections": {
+            "LSR": [  ],
+            "CE": [  ],
+            "Q": [  ],
+            "F": [ 3877743 ],
+            "CLK": [  ],
+            "D": [ 3877857 ],
+            "C": [ 3877857 ],
+            "B": [ 3877785 ],
+            "A": [ 3877784 ]
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_5_ALULC": {
+          "hide_name": 0,
+          "type": "SLICE",
+          "parameters": {
+            "ALU_MODE": "00000000000000000000000000000010",
+            "FF_TYPE": "DFF",
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "R26C32_SLICE4"
+          },
+          "port_directions": {
+            "LSR": "input",
+            "CE": "input",
+            "Q": "output",
+            "F": "output",
+            "CLK": "input",
+            "D": "input",
+            "C": "input",
+            "B": "input",
+            "A": "input"
+          },
+          "connections": {
+            "LSR": [  ],
+            "CE": [  ],
+            "Q": [  ],
+            "F": [ 3877746 ],
+            "CLK": [  ],
+            "D": [ 3877857 ],
+            "C": [ 3877857 ],
+            "B": [ 3877790 ],
+            "A": [ 3877789 ]
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_6_ALULC": {
+          "hide_name": 0,
+          "type": "SLICE",
+          "parameters": {
+            "ALU_MODE": "00000000000000000000000000000010",
+            "FF_TYPE": "DFF",
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "R26C32_SLICE3"
+          },
+          "port_directions": {
+            "LSR": "input",
+            "CE": "input",
+            "Q": "output",
+            "F": "output",
+            "CLK": "input",
+            "D": "input",
+            "C": "input",
+            "B": "input",
+            "A": "input"
+          },
+          "connections": {
+            "LSR": [  ],
+            "CE": [  ],
+            "Q": [  ],
+            "F": [ 3877749 ],
+            "CLK": [  ],
+            "D": [ 3877857 ],
+            "C": [ 3877857 ],
+            "B": [ 3877795 ],
+            "A": [ 3877794 ]
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_7_ALULC": {
+          "hide_name": 0,
+          "type": "SLICE",
+          "parameters": {
+            "ALU_MODE": "00000000000000000000000000000010",
+            "FF_TYPE": "DFF",
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "R26C32_SLICE2"
+          },
+          "port_directions": {
+            "LSR": "input",
+            "CE": "input",
+            "Q": "output",
+            "F": "output",
+            "CLK": "input",
+            "D": "input",
+            "C": "input",
+            "B": "input",
+            "A": "input"
+          },
+          "connections": {
+            "LSR": [  ],
+            "CE": [  ],
+            "Q": [  ],
+            "F": [ 3877752 ],
+            "CLK": [  ],
+            "D": [ 3877857 ],
+            "C": [ 3877857 ],
+            "B": [ 3877798 ],
+            "A": [ 3877797 ]
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_ALULC": {
+          "hide_name": 0,
+          "type": "SLICE",
+          "parameters": {
+            "ALU_MODE": "00000000000000000000000000000010",
+            "FF_TYPE": "DFF",
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "R26C32_SLICE1"
+          },
+          "port_directions": {
+            "LSR": "input",
+            "CE": "input",
+            "Q": "output",
+            "F": "output",
+            "CLK": "input",
+            "D": "input",
+            "C": "input",
+            "B": "input",
+            "A": "input"
+          },
+          "connections": {
+            "LSR": [  ],
+            "CE": [  ],
+            "Q": [  ],
+            "F": [ 3877755 ],
+            "CLK": [  ],
+            "D": [ 3877857 ],
+            "C": [ 3877857 ],
+            "B": [ 3877762 ],
+            "A": [ 3877761 ]
+          }
+        },
+        "leds_OBUF_O_7$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_I": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R17C47_IOBB",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:5.18-5.22",
+            "&DRIVE=12": "00000000000000000000000000000001",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [  ],
+            "OEN": [  ],
+            "I": [ 3877755 ],
+            "PAD": [  ]
+          }
+        },
+        "num1_IBUF_I$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C11_IOBB",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:3.17-3.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877770 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num1_IBUF_I_1$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C11_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:3.17-3.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877775 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num1_IBUF_I_2$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C8_IOBB",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:3.17-3.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877780 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num1_IBUF_I_3$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C8_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:3.17-3.21",
+            "&IO_TYPE=SSTL25_I": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877785 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num1_IBUF_I_4$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C33_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:3.17-3.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877790 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num1_IBUF_I_5$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C29_IOBB",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:3.17-3.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877795 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num1_IBUF_I_6$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C31_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:3.17-3.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877798 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num1_IBUF_I_7$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C31_IOBB",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:3.17-3.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877762 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num2_IBUF_I$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C41_IOBB",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:4.17-4.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877769 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num2_IBUF_I_1$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C41_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:4.17-4.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877774 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num2_IBUF_I_2$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C29_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:4.17-4.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877779 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num2_IBUF_I_3$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C33_IOBB",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:4.17-4.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877784 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num2_IBUF_I_4$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C23_IOBB",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:4.17-4.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877789 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num2_IBUF_I_5$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C23_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:4.17-4.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877794 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num2_IBUF_I_6$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C13_IOBB",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:4.17-4.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877797 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "num2_IBUF_I_7$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R29C13_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:4.17-4.21",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877761 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "clk_IBUF_I$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_O": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R17C47_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:2.11-2.14",
+            "&IO_TYPE=LVCMOS33": "00000000000000000000000000000001",
+            "&PULL_MODE=UP": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [ 3877731 ],
+            "OEN": [  ],
+            "I": [  ],
+            "PAD": [  ]
+          }
+        },
+        "leds_OBUF_O_6$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_I": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R15C47_IOBB",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:5.18-5.22",
+            "&DRIVE=12": "00000000000000000000000000000001",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [  ],
+            "OEN": [  ],
+            "I": [ 3877752 ],
+            "PAD": [  ]
+          }
+        },
+        "leds_OBUF_O_5$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_I": "NET",
+            "NET_GW9C_ALWAYS_LOW0": "GND",
+            "NET_GW9C_ALWAYS_LOW1": "GND",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R15C47_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:5.18-5.22",
+            "&DRIVE=12": "00000000000000000000000000000001",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "GW9C_ALWAYS_LOW1": "input",
+            "GW9C_ALWAYS_LOW0": "input",
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "GW9C_ALWAYS_LOW1": [ 3877855 ],
+            "GW9C_ALWAYS_LOW0": [ 3877855 ],
+            "O": [  ],
+            "OEN": [  ],
+            "I": [ 3877749 ],
+            "PAD": [  ]
+          }
+        },
+        "leds_OBUF_O_2$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_I": "NET",
+            "NET_GW9C_ALWAYS_LOW0": "GND",
+            "NET_GW9C_ALWAYS_LOW1": "GND",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R13C47_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:5.18-5.22",
+            "&DRIVE=12": "00000000000000000000000000000001",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "GW9C_ALWAYS_LOW1": "input",
+            "GW9C_ALWAYS_LOW0": "input",
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "GW9C_ALWAYS_LOW1": [ 3877855 ],
+            "GW9C_ALWAYS_LOW0": [ 3877855 ],
+            "O": [  ],
+            "OEN": [  ],
+            "I": [ 3877740 ],
+            "PAD": [  ]
+          }
+        },
+        "$PACKER_VCC": {
+          "hide_name": 1,
+          "type": "VCC",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "VCC"
+          },
+          "port_directions": {
+            "V": "output"
+          },
+          "connections": {
+            "V": [ 3877857 ]
+          }
+        },
+        "leds_OBUF_O_3$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_I": "NET",
+            "NET_GW9C_ALWAYS_LOW0": "GND",
+            "NET_GW9C_ALWAYS_LOW1": "GND",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R14C47_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:5.18-5.22",
+            "&DRIVE=12": "00000000000000000000000000000001",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "GW9C_ALWAYS_LOW1": "input",
+            "GW9C_ALWAYS_LOW0": "input",
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "GW9C_ALWAYS_LOW1": [ 3877855 ],
+            "GW9C_ALWAYS_LOW0": [ 3877855 ],
+            "O": [  ],
+            "OEN": [  ],
+            "I": [ 3877743 ],
+            "PAD": [  ]
+          }
+        },
+        "leds_OBUF_O$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_I": "NET",
+            "NET_GW9C_ALWAYS_LOW0": "GND",
+            "NET_GW9C_ALWAYS_LOW1": "GND",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R1C42_IOBA",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:5.18-5.22",
+            "&DRIVE=12": "00000000000000000000000000000001",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "GW9C_ALWAYS_LOW1": "input",
+            "GW9C_ALWAYS_LOW0": "input",
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "GW9C_ALWAYS_LOW1": [ 3877855 ],
+            "GW9C_ALWAYS_LOW0": [ 3877855 ],
+            "O": [  ],
+            "OEN": [  ],
+            "I": [ 3877734 ],
+            "PAD": [  ]
+          }
+        },
+        "leds_OBUF_O_4$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_I": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R14C47_IOBB",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:5.18-5.22",
+            "&DRIVE=12": "00000000000000000000000000000001",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [  ],
+            "OEN": [  ],
+            "I": [ 3877746 ],
+            "PAD": [  ]
+          }
+        },
+        "leds_OBUF_O_1$iob": {
+          "hide_name": 0,
+          "type": "IOB",
+          "parameters": {
+            "NET_I": "NET",
+            "ENABLE_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "R1C42_IOBB",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:5.18-5.22",
+            "&DRIVE=12": "00000000000000000000000000000001",
+            "&IO_TYPE=LVCMOS18": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "OEN": "input",
+            "I": "input",
+            "PAD": "inout"
+          },
+          "connections": {
+            "O": [  ],
+            "OEN": [  ],
+            "I": [ 3877737 ],
+            "PAD": [  ]
+          }
+        },
+        "$PACKER_GND": {
+          "hide_name": 1,
+          "type": "GND",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "GND"
+          },
+          "port_directions": {
+            "G": "output"
+          },
+          "connections": {
+            "G": [ 3877855 ]
+          }
+        },
+        "GSR": {
+          "hide_name": 0,
+          "type": "GSR",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "R1C1_GSR0"
+          },
+          "port_directions": {
+            "GSRI": "input"
+          },
+          "connections": {
+            "GSRI": [ 3877857 ]
+          }
+        }
+      },
+      "netnames": {
+        "num2_IBUF_I_O[4]": {
+          "hide_name": 0,
+          "bits": [ 3877784 ] ,
+          "attributes": {
+            "ROUTING": "R29C33_Q6;;1;R29C33_N13;R29C33_Q6_N130;1;R28C33_N27;R28C33_N131_N270;1;R26C33_W27;R26C33_N272_W270;1;R26C32_A5;R26C32_W271_A5;1"
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_1_COUT[3]": {
+          "hide_name": 0,
+          "bits": [ 3877783 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "unused_bits": "7",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:23.15-23.26|/home/julio/eda/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:52.24-52.25",
+            "force_downto": "00000000000000000000000000000001"
+          }
+        },
+        "num1_IBUF_I_O[5]": {
+          "hide_name": 0,
+          "bits": [ 3877780 ] ,
+          "attributes": {
+            "ROUTING": "R29C8_Q6;;1;R29C8_E26;R29C8_Q6_E260;1;R29C10_E27;R29C10_E262_E270;1;R29C12_E22;R29C12_E272_E220;1;R29C14_E22;R29C14_E222_E220;1;R29C16_E23;R29C16_E222_E230;1;R29C18_N23;R29C18_E232_N230;1;R27C18_N26;R27C18_N232_N260;1;R26C18_E26;R26C18_N261_E260;1;R26C20_E27;R26C20_E262_E270;1;R26C22_E27;R26C22_E272_E270;1;R26C24_E27;R26C24_E272_E270;1;R26C26_E27;R26C26_E272_E270;1;R26C28_E22;R26C28_E272_E220;1;R26C30_E23;R26C30_E222_E230;1;R26C32_E23;R26C32_E232_E230;1;R26C33_B0;R26C33_E231_B0;1"
+          }
+        },
+        "num2_IBUF_I_O[5]": {
+          "hide_name": 0,
+          "bits": [ 3877779 ] ,
+          "attributes": {
+            "ROUTING": "R29C29_F6;;5;R26C33_A0;R26C33_E111_A0;5;R26C32_EW10;R26C32_GB00_EW10;5;R26C32_GBO0;R26C32_GT00_GBO0;5;R20C32_GT00;R20C32_SPINE24_GT00;5;R10C29_SPINE24;R10C29_PCLKB1_SPINE24;5"
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_1_COUT[4]": {
+          "hide_name": 0,
+          "bits": [ 3877778 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "unused_bits": "7",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:23.15-23.26|/home/julio/eda/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:52.24-52.25",
+            "force_downto": "00000000000000000000000000000001"
+          }
+        },
+        "num1_IBUF_I_O[6]": {
+          "hide_name": 0,
+          "bits": [ 3877775 ] ,
+          "attributes": {
+            "ROUTING": "R29C11_F6;;1;R29C11_E26;R29C11_F6_E260;1;R29C13_E27;R29C13_E262_E270;1;R29C15_E27;R29C15_E272_E270;1;R29C17_E27;R29C17_E272_E270;1;R29C19_N27;R29C19_E272_N270;1;R27C19_N22;R27C19_N272_N220;1;R26C19_E22;R26C19_N221_E220;1;R26C21_E23;R26C21_E222_E230;1;R26C23_E26;R26C23_E232_E260;1;R26C25_E26;R26C25_E262_E260;1;R26C27_E27;R26C27_E262_E270;1;R26C29_E22;R26C29_E272_E220;1;R26C31_E23;R26C31_E222_E230;1;R26C33_B1;R26C33_E232_B1;1"
+          }
+        },
+        "num2_IBUF_I_O[6]": {
+          "hide_name": 0,
+          "bits": [ 3877774 ] ,
+          "attributes": {
+            "ROUTING": "R29C41_F6;;1;R29C41_N26;R29C41_F6_N260;1;R27C41_W26;R27C41_N262_W260;1;R27C39_W27;R27C39_W262_W270;1;R27C37_W27;R27C37_W272_W270;1;R27C35_W27;R27C35_W272_W270;1;R27C33_N27;R27C33_W272_N270;1;R26C33_A1;R26C33_N271_A1;1"
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_1_COUT[5]": {
+          "hide_name": 0,
+          "bits": [ 3877773 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "unused_bits": "7",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:23.15-23.26|/home/julio/eda/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:52.24-52.25",
+            "force_downto": "00000000000000000000000000000001"
+          }
+        },
+        "num1_IBUF_I_O[7]": {
+          "hide_name": 0,
+          "bits": [ 3877770 ] ,
+          "attributes": {
+            "ROUTING": "R29C11_Q6;;1;R29C11_N26;R29C11_Q6_N260;1;R27C11_E26;R27C11_N262_E260;1;R27C13_E27;R27C13_E262_E270;1;R27C15_E22;R27C15_E272_E220;1;R27C17_E22;R27C17_E222_E220;1;R27C19_E22;R27C19_E222_E220;1;R27C21_E22;R27C21_E222_E220;1;R27C23_E22;R27C23_E222_E220;1;R27C25_E23;R27C25_E222_E230;1;R27C27_E26;R27C27_E232_E260;1;R27C29_E83;R27C29_E262_E830;1;R27C33_N25;R27C33_E834_N250;1;R26C33_X04;R26C33_N251_X04;1;R26C33_B2;R26C33_X04_B2;1"
+          }
+        },
+        "num2_IBUF_I_O[7]": {
+          "hide_name": 0,
+          "bits": [ 3877769 ] ,
+          "attributes": {
+            "ROUTING": "R29C41_Q6;;1;R29C41_W26;R29C41_Q6_W260;1;R29C39_W26;R29C39_W262_W260;1;R29C37_W27;R29C37_W262_W270;1;R29C35_W22;R29C35_W272_W220;1;R29C33_N22;R29C33_W222_N220;1;R27C33_N23;R27C33_N222_N230;1;R26C33_X02;R26C33_N231_X02;1;R26C33_A2;R26C33_X02_A2;1"
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_1_COUT[7]": {
+          "hide_name": 0,
+          "bits": [ 3877768 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "unused_bits": "7",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:23.15-23.26|/home/julio/eda/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:38.25-38.27",
+            "force_downto": "00000000000000000000000000000001"
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_1_COUT[6]": {
+          "hide_name": 0,
+          "bits": [ 3877767 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "unused_bits": "7",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:23.15-23.26|/home/julio/eda/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:52.24-52.25",
+            "force_downto": "00000000000000000000000000000001"
+          }
+        },
+        "$PACKER_VCC_NET": {
+          "hide_name": 1,
+          "bits": [ 3877857 ] ,
+          "attributes": {
+            "ROUTING": "R26C32_C0;R26C32_X04_C0;1;R26C32_D4;R26C32_X07_D4;1;R26C33_C0;R26C33_N220_C0;1;R26C32_C5;R26C32_X08_C5;1;R26C32_X08;R26C32_VCC_X08;1;R26C32_C4;R26C32_X08_C4;1;R26C32_D2;R26C32_X03_D2;1;R26C33_W22;R26C33_VCC_W220;1;R26C33_C2;R26C33_W220_C2;1;R1C1_N20;R1C1_VCC_N200;1;R1C1_C4;R1C1_S201_C4;1;R26C32_D1;R26C32_X03_D1;1;R26C32_C3;R26C32_X04_C3;1;R26C32_C1;R26C32_X04_C1;1;R26C33_N22;R26C33_VCC_N220;1;R26C33_C1;R26C33_N220_C1;1;R26C33_D2;R26C33_X03_D2;1;R26C33_D1;R26C33_X03_D1;1;R26C32_X04;R26C32_VCC_X04;1;R26C32_C2;R26C32_X04_C2;1;R26C32_X03;R26C32_VCC_X03;1;R26C32_D3;R26C32_X03_D3;1;R26C33_X03;R26C33_VCC_X03;1;R26C33_D0;R26C33_X03_D0;1;VCC;;1;R26C32_X07;R26C32_VCC_X07;1;R26C32_D5;R26C32_X07_D5;1"
+          }
+        },
+        "num1_IBUF_I_O[0]": {
+          "hide_name": 0,
+          "bits": [ 3877762 ] ,
+          "attributes": {
+            "ROUTING": "R29C31_Q6;;1;R29C31_E13;R29C31_Q6_E130;1;R29C32_N23;R29C32_E131_N230;1;R27C32_N23;R27C32_N232_N230;1;R26C32_B1;R26C32_N231_B1;1"
+          }
+        },
+        "num2_IBUF_I_O[0]": {
+          "hide_name": 0,
+          "bits": [ 3877761 ] ,
+          "attributes": {
+            "ROUTING": "R29C13_F6;;1;R29C13_N26;R29C13_F6_N260;1;R27C13_E26;R27C13_N262_E260;1;R27C15_E26;R27C15_E262_E260;1;R27C17_E26;R27C17_E262_E260;1;R27C19_E27;R27C19_E262_E270;1;R27C21_E27;R27C21_E272_E270;1;R27C23_E27;R27C23_E272_E270;1;R27C25_N27;R27C25_E272_N270;1;R26C25_E27;R26C25_N271_E270;1;R26C27_E82;R26C27_E272_E820;1;R26C35_W24;R26C35_E828_W240;1;R26C33_W25;R26C33_W242_W250;1;R26C32_A1;R26C32_W251_A1;1"
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_1_COUT[0]": {
+          "hide_name": 0,
+          "bits": [ 3877760 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "unused_bits": "7",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:23.15-23.26|/home/julio/eda/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:52.24-52.25",
+            "force_downto": "00000000000000000000000000000001"
+          }
+        },
+        "$PACKER_GND_NET": {
+          "hide_name": 1,
+          "bits": [ 3877855 ] ,
+          "attributes": {
+            "ROUTING": "R14C47_W26;R14C47_VSS_W260;1;R14C47_D6;R14C47_W260_D6;1;R14C47_S23;R14C47_VSS_S230;1;R14C47_C6;R14C47_S230_C6;1;R15C47_W26;R15C47_VSS_W260;1;R15C47_D6;R15C47_W260_D6;1;R1C42_W26;R1C42_VSS_W260;1;R1C42_D6;R1C42_W260_D6;1;R15C47_S23;R15C47_VSS_S230;1;R15C47_C6;R15C47_S230_C6;1;R1C42_S23;R1C42_VSS_S230;1;R1C42_C6;R1C42_S230_C6;1;R13C47_N27;R13C47_VSS_N270;1;R13C47_D6;R13C47_N270_D6;1;VSS;;1;R13C47_E26;R13C47_VSS_E260;1;R13C47_C6;R13C47_W261_C6;1"
+          }
+        },
+        "num1_IBUF_I_O[1]": {
+          "hide_name": 0,
+          "bits": [ 3877798 ] ,
+          "attributes": {
+            "ROUTING": "R29C31_F6;;1;R29C31_SN10;R29C31_F6_SN10;1;R28C31_N21;R28C31_N111_N210;1;R26C31_E21;R26C31_N212_E210;1;R26C32_B2;R26C32_E211_B2;1"
+          }
+        },
+        "leds_OBUF_O_I[0]": {
+          "hide_name": 0,
+          "bits": [ 3877755 ] ,
+          "attributes": {
+            "ROUTING": "R26C32_F1;;1;R26C32_N21;R26C32_F1_N210;1;R24C32_E21;R24C32_N212_E210;1;R24C34_E21;R24C34_E212_E210;1;R24C36_E24;R24C36_E212_E240;1;R24C38_N24;R24C38_E242_N240;1;R22C38_N24;R22C38_N242_N240;1;R20C38_N24;R20C38_N242_N240;1;R18C38_E24;R18C38_N242_E240;1;R18C40_E25;R18C40_E242_E250;1;R18C42_E20;R18C42_E252_E200;1;R18C44_E80;R18C44_E202_E800;1;R18C47_N20;R18C47_W804_N200;1;R17C47_D1;R17C47_N201_D1;1"
+          }
+        },
+        "num2_IBUF_I_O[1]": {
+          "hide_name": 0,
+          "bits": [ 3877797 ] ,
+          "attributes": {
+            "ROUTING": "R29C13_Q6;;1;R29C13_E26;R29C13_Q6_E260;1;R29C15_E26;R29C15_E262_E260;1;R29C17_E26;R29C17_E262_E260;1;R29C19_E26;R29C19_E262_E260;1;R29C21_E27;R29C21_E262_E270;1;R29C23_E22;R29C23_E272_E220;1;R29C25_N22;R29C25_E222_N220;1;R27C25_E22;R27C25_N222_E220;1;R27C27_E23;R27C27_E222_E230;1;R27C29_E26;R27C29_E232_E260;1;R27C31_E27;R27C31_E262_E270;1;R27C32_N27;R27C32_E271_N270;1;R26C32_A2;R26C32_N271_A2;1"
+          }
+        },
+        "leds_OBUF_O_I[1]": {
+          "hide_name": 0,
+          "bits": [ 3877752 ] ,
+          "attributes": {
+            "ROUTING": "R26C32_F2;;1;R26C32_E22;R26C32_F2_E220;1;R26C34_E23;R26C34_E222_E230;1;R26C36_E23;R26C36_E232_E230;1;R26C38_E23;R26C38_E232_E230;1;R26C40_E26;R26C40_E232_E260;1;R26C42_E27;R26C42_E262_E270;1;R26C44_E27;R26C44_E272_E270;1;R26C46_N27;R26C46_E272_N270;1;R24C46_N22;R24C46_N272_N220;1;R22C46_N23;R22C46_N222_N230;1;R20C46_N26;R20C46_N232_N260;1;R18C46_N27;R18C46_N262_N270;1;R16C46_N22;R16C46_N272_N220;1;R15C46_E22;R15C46_N221_E220;1;R15C47_D1;R15C47_E221_D1;1"
+          }
+        },
+        "num1_IBUF_I_O[2]": {
+          "hide_name": 0,
+          "bits": [ 3877795 ] ,
+          "attributes": {
+            "ROUTING": "R29C29_Q6;;1;R29C29_EW10;R29C29_Q6_EW10;1;R29C30_E21;R29C30_E111_E210;1;R29C32_N21;R29C32_E212_N210;1;R27C32_N21;R27C32_N212_N210;1;R26C32_B3;R26C32_N211_B3;1"
+          }
+        },
+        "leds_OBUF_O_I[2]": {
+          "hide_name": 0,
+          "bits": [ 3877749 ] ,
+          "attributes": {
+            "ROUTING": "R26C32_F3;;1;R26C32_N23;R26C32_F3_N230;1;R24C32_E23;R24C32_N232_E230;1;R24C34_E23;R24C34_E232_E230;1;R24C36_E23;R24C36_E232_E230;1;R24C38_N23;R24C38_E232_N230;1;R22C38_N26;R22C38_N232_N260;1;R20C38_E26;R20C38_N262_E260;1;R20C40_E27;R20C40_E262_E270;1;R20C42_N27;R20C42_E272_N270;1;R18C42_E27;R18C42_N272_E270;1;R18C44_N27;R18C44_E272_N270;1;R16C44_E27;R16C44_N272_E270;1;R16C46_N27;R16C46_E272_N270;1;R15C46_E27;R15C46_N271_E270;1;R15C47_A0;R15C47_E271_A0;1"
+          }
+        },
+        "num2_IBUF_I_O[2]": {
+          "hide_name": 0,
+          "bits": [ 3877794 ] ,
+          "attributes": {
+            "ROUTING": "R29C23_F6;;1;R29C23_N26;R29C23_F6_N260;1;R27C23_E26;R27C23_N262_E260;1;R27C25_E27;R27C25_E262_E270;1;R27C27_E27;R27C27_E272_E270;1;R27C29_E27;R27C29_E272_E270;1;R27C30_N27;R27C30_E271_N270;1;R26C30_E27;R26C30_N271_E270;1;R26C32_A3;R26C32_E272_A3;1"
+          }
+        },
+        "leds_OBUF_O_I[3]": {
+          "hide_name": 0,
+          "bits": [ 3877746 ] ,
+          "attributes": {
+            "ROUTING": "R26C32_F4;;1;R26C32_E24;R26C32_F4_E240;1;R26C34_N24;R26C34_E242_N240;1;R24C34_N24;R24C34_N242_N240;1;R22C34_E24;R22C34_N242_E240;1;R22C36_E24;R22C36_E242_E240;1;R22C38_E24;R22C38_E242_E240;1;R22C40_E24;R22C40_E242_E240;1;R22C42_E25;R22C42_E242_E250;1;R22C44_N25;R22C44_E252_N250;1;R20C44_N20;R20C44_N252_N200;1;R18C44_N21;R18C44_N202_N210;1;R16C44_N21;R16C44_N212_N210;1;R14C44_E21;R14C44_N212_E210;1;R14C46_E24;R14C46_E212_E240;1;R14C47_X03;R14C47_E241_X03;1;R14C47_D1;R14C47_X03_D1;1"
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_1_COUT[1]": {
+          "hide_name": 0,
+          "bits": [ 3877793 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "unused_bits": "7",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:23.15-23.26|/home/julio/eda/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:52.24-52.25",
+            "force_downto": "00000000000000000000000000000001"
+          }
+        },
+        "leds_OBUF_O_I[4]": {
+          "hide_name": 0,
+          "bits": [ 3877743 ] ,
+          "attributes": {
+            "ROUTING": "R26C32_F5;;1;R26C32_E25;R26C32_F5_E250;1;R26C34_E20;R26C34_E252_E200;1;R26C36_E21;R26C36_E202_E210;1;R26C38_N21;R26C38_E212_N210;1;R24C38_E21;R24C38_N212_E210;1;R24C40_E24;R24C40_E212_E240;1;R24C42_E25;R24C42_E242_E250;1;R24C44_E20;R24C44_E252_E200;1;R24C46_N20;R24C46_E202_N200;1;R22C46_N21;R22C46_N202_N210;1;R20C46_N24;R20C46_N212_N240;1;R18C46_N82;R18C46_N242_N820;1;R14C46_E27;R14C46_N824_E270;1;R14C47_A0;R14C47_E271_A0;1"
+          }
+        },
+        "num1_IBUF_I_O[3]": {
+          "hide_name": 0,
+          "bits": [ 3877790 ] ,
+          "attributes": {
+            "ROUTING": "R29C33_F6;;1;R29C33_N10;R29C33_F6_N100;1;R28C33_N20;R28C33_N101_N200;1;R26C33_W20;R26C33_N202_W200;1;R26C32_X01;R26C32_W201_X01;1;R26C32_B4;R26C32_X01_B4;1"
+          }
+        },
+        "leds_OBUF_O_I[5]": {
+          "hide_name": 0,
+          "bits": [ 3877740 ] ,
+          "attributes": {
+            "ROUTING": "R26C33_F0;;1;R26C33_E20;R26C33_F0_E200;1;R26C35_E21;R26C35_E202_E210;1;R26C37_N21;R26C37_E212_N210;1;R24C37_N24;R24C37_N212_N240;1;R22C37_N25;R22C37_N242_N250;1;R20C37_N20;R20C37_N252_N200;1;R18C37_N21;R18C37_N202_N210;1;R16C37_N21;R16C37_N212_N210;1;R14C37_E21;R14C37_N212_E210;1;R14C39_E24;R14C39_E212_E240;1;R14C41_E25;R14C41_E242_E250;1;R14C43_E83;R14C43_E252_E830;1;R14C47_N25;R14C47_E834_N250;1;R13C47_A0;R13C47_N251_A0;1"
+          }
+        },
+        "num2_IBUF_I_O[3]": {
+          "hide_name": 0,
+          "bits": [ 3877789 ] ,
+          "attributes": {
+            "ROUTING": "R29C23_Q6;;1;R29C23_E26;R29C23_Q6_E260;1;R29C25_E27;R29C25_E262_E270;1;R29C27_E27;R29C27_E272_E270;1;R29C29_E27;R29C29_E272_E270;1;R29C31_N27;R29C31_E272_N270;1;R27C31_N27;R27C31_N272_N270;1;R26C31_E27;R26C31_N271_E270;1;R26C32_A4;R26C32_E271_A4;1"
+          }
+        },
+        "leds_OBUF_O_I[6]": {
+          "hide_name": 0,
+          "bits": [ 3877737 ] ,
+          "attributes": {
+            "ROUTING": "R26C33_F1;;1;R26C33_E21;R26C33_F1_E210;1;R26C35_N21;R26C35_E212_N210;1;R24C35_N24;R24C35_N212_N240;1;R22C35_E24;R22C35_N242_E240;1;R22C37_E24;R22C37_E242_E240;1;R22C39_N24;R22C39_E242_N240;1;R20C39_E24;R20C39_N242_E240;1;R20C41_N24;R20C41_E242_N240;1;R18C41_N24;R18C41_N242_N240;1;R16C41_N24;R16C41_N242_N240;1;R14C41_N25;R14C41_N242_N250;1;R12C41_N25;R12C41_N252_N250;1;R10C41_N20;R10C41_N252_N200;1;R8C41_N20;R8C41_N202_N200;1;R6C41_N21;R6C41_N202_N210;1;R4C41_N81;R4C41_N212_N810;1;R1C41_E22;R1C41_S814_E220;1;R1C42_D1;R1C42_E221_D1;1"
+          }
+        },
+        "leds_OBUF_O_I_ALU_SUM_1_COUT[2]": {
+          "hide_name": 0,
+          "bits": [ 3877788 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "unused_bits": "7",
+            "src": "/home/julio/eda/projetos/estudos_verilog/somador_8bits/src/main.v:23.15-23.26|/home/julio/eda/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:52.24-52.25",
+            "force_downto": "00000000000000000000000000000001"
+          }
+        },
+        "leds_OBUF_O_I[7]": {
+          "hide_name": 0,
+          "bits": [ 3877734 ] ,
+          "attributes": {
+            "ROUTING": "R26C33_F2;;1;R26C33_E22;R26C33_F2_E220;1;R26C35_N22;R26C35_E222_N220;1;R24C35_N23;R24C35_N222_N230;1;R22C35_E23;R22C35_N232_E230;1;R22C37_E26;R22C37_E232_E260;1;R22C39_E27;R22C39_E262_E270;1;R22C41_N27;R22C41_E272_N270;1;R20C41_N27;R20C41_N272_N270;1;R18C41_N22;R18C41_N272_N220;1;R16C41_N22;R16C41_N222_N220;1;R14C41_N23;R14C41_N222_N230;1;R12C41_N23;R12C41_N232_N230;1;R10C41_N26;R10C41_N232_N260;1;R8C41_N27;R8C41_N262_N270;1;R6C41_N27;R6C41_N272_N270;1;R4C41_N82;R4C41_N272_N820;1;R1C41_E27;R1C41_S824_E270;1;R1C42_A0;R1C42_E271_A0;1"
+          }
+        },
+        "clk_IBUF_I_O": {
+          "hide_name": 0,
+          "bits": [ 3877731 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "unused_bits": "0 "
+          }
+        },
+        "num1_IBUF_I_O[4]": {
+          "hide_name": 0,
+          "bits": [ 3877785 ] ,
+          "attributes": {
+            "ROUTING": "R29C8_F6;;1;R29C8_N26;R29C8_F6_N260;1;R27C8_E26;R27C8_N262_E260;1;R27C10_E27;R27C10_E262_E270;1;R27C12_E22;R27C12_E272_E220;1;R27C14_E22;R27C14_E222_E220;1;R27C16_E22;R27C16_E222_E220;1;R27C18_E23;R27C18_E222_E230;1;R27C20_E23;R27C20_E232_E230;1;R27C22_E23;R27C22_E232_E230;1;R27C24_E23;R27C24_E232_E230;1;R27C26_E26;R27C26_E232_E260;1;R27C28_E83;R27C28_E262_E830;1;R27C32_N25;R27C32_E834_N250;1;R26C32_B5;R26C32_N251_B5;1"
+          }
+        }
+      }
+    }
+  }
+}

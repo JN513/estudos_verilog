@@ -5,92 +5,143 @@ module spi_master (
     output mosi, // master output slave input
     input miso, // master input slave output
     output cs, // chip select
-    input [5:0] tx_data, 
-    output [5:0] rx_data,
+    input [7:0] tx_data, 
+    output [7:0] rx_data,
     input start_tx, // Sinal para iniciar a transmissão
     output tx_done,  // Sinal indicando que a transmissão está concluída
     output rx_done
 );
 
-localparam IDLE = 3'b000;
-localparam SENDING = 3'b001;
-localparam RECEIVING = 3'b010;
+reg [3:0] state; // estados da maquina
 
-reg [2:0] state; // Registrador que armazena o estado atual da maquina de estado
-reg [5:0] bit_counter;
-reg [5:0] spi_data, output_data;
+reg sclk, mosi_r, cs_r, tx_done_r, trig;
 
-reg sck, mosi_r, tx_done_r, rx_done_r, cs_r;
-
-initial begin
-    state = IDLE;
-    bit_counter = 0;
-end;
-
-assign rx_data = output_data;
-assign spi_clk = sck;
+assign spi_clk = clk;
 assign mosi = mosi_r;
-assign tx_done = tx_done_r;
-assign rx_done = rx_done_r;
 assign cs = cs_r;
+assign tx_done = tx_done_r;
 
-always @(posedge clk or negedge reset ) begin
-    if(!reset) begin 
-        sck <= 0;
-        spi_data <= 6'h00;
-        mosi_r <= 0;
-        state <= IDLE;
-        tx_done_r <= 0;
-        rx_done_r <= 0;
-        output_data <= 0;
-    end
-    else begin
-        case(state)
-            IDLE: begin
-                sck <= 0;
+parameter START = 0, S0 = 1, S1 = 2, S2 = 3, S3 = 4, S4 = 5, S5 = 6, S6 = 7, S7 = 8, STOP = 9;
 
-                if(start_tx) begin
-                    spi_data <= tx_data;
-                    state <= SENDING;
+always @(posedge clk) begin
+    if(start_tx == 1'b1) begin
+        if (reset == 1'b1) begin
+            state <= START;
+            sclk <= 1'b0;
+            mosi_r <= 1'b0;
+            tx_done_r <= 1'b0;
+            cs_r <= 1'b1;
+        end else begin
+            case (state)
+                START: begin
+                    tx_done_r <= 1'b0;
+                    state <= S0;
+                    trig <= 1'b1;
+                    sclk <= 1'b0;
+                    mosi_r <= 1'b0;
+                    cs_r <= 1'b0;
                 end
-            end
-
-            SENDING: begin
-                sck <= ~clk;
-                if(bit_counter == 0) begin
-                    cs_r <= 0;
-                    mosi_r <= spi_data[5];
-                    spi_data <= {spi_data[4:0], 1'b1};
-                end else if(bit_counter == 6) begin
-                    cs_r <= 1;
-                    bit_counter <= 0;
-                    tx_done_r <= 1;
-                    state <= IDLE;
-                end else begin
-                    mosi_r <= spi_data[5];
-                    spi_data <= {spi_data[4:0], 1'b1};
-                    bit_counter <= bit_counter + 1;
+                S0: begin
+                    if(trig == 1'b1) begin
+                        sclk <= 'b1;
+                        mosi_r <= tx_data[7];
+                        trig <= 1'b0;
+                    end else begin
+                        state <= S1;
+                        sclk <= 1'b0;
+                        trig <= 1'b1;
+                    end
                 end
-            end
-
-            RECEIVING: begin
-                sck <= ~clk;
-                if(bit_counter == 0) begin
-                    cs_r <= 0;
-                    output_data[5] <= miso;
-                end else if(bit_counter == 6) begin
-                    cs_r <= 1;
-                    bit_counter <= 0;
-                    rx_done_r <= 1;
-                    state <= IDLE;
-                end else begin
-                    output_data <= {1'b1, output_data[5:1]};
-                    output_data[5] <= miso;
-                    bit_counter <= bit_counter + 1;
+                S1: begin
+                    if(trig == 1'b1) begin
+                        sclk <= 'b1;
+                        mosi_r <= tx_data[6];
+                        trig <= 1'b0;
+                    end else begin
+                        state <= S2;
+                        sclk <= 1'b0;
+                        trig <= 1'b1;
+                    end
                 end
-            end
-        endcase
-    end
-end
+                S2: begin
+                    if(trig == 1'b1) begin
+                        sclk <= 'b1;
+                        mosi_r <= tx_data[5];
+                        trig <= 1'b0;
+                    end else begin
+                        state <= S3;
+                        sclk <= 1'b0;
+                        trig <= 1'b1;
+                    end
+                end 
+                S3: begin
+                    if(trig == 1'b1) begin
+                        sclk <= 'b1;
+                        mosi_r <= tx_data[4];
+                        trig <= 1'b0;
+                    end else begin
+                        state <= S4;
+                        sclk <= 1'b0;
+                        trig <= 1'b1;
+                    end
+                end
+                S4: begin
+                    if(trig == 1'b1) begin
+                        sclk <= 'b1;
+                        mosi_r <= tx_data[3];
+                        trig <= 1'b0;
+                    end else begin
+                        state <= S5;
+                        sclk <= 1'b0;
+                        trig <= 1'b1;
+                    end
+                end
+                S5: begin
+                    if(trig == 1'b1) begin
+                        sclk <= 'b1;
+                        mosi_r <= tx_data[2];
+                        trig <= 1'b0;
+                    end else begin
+                        state <= S6;
+                        sclk <= 1'b0;
+                        trig <= 1'b1;
+                    end
+                end
+                S6: begin
+                    if(trig == 1'b1) begin
+                        sclk <= 'b1;
+                        mosi_r <= tx_data[1];
+                        trig <= 1'b0;
+                    end else begin
+                        state <= S7;
+                        sclk <= 1'b0;
+                        trig <= 1'b1;
+                    end
+                end
+                S7: begin
+                    if(trig == 1'b1) begin
+                        sclk <= 'b1;
+                        mosi_r <= tx_data[0];
+                        trig <= 1'b0;
+                    end else begin
+                        state <= STOP;
+                        sclk <= 1'b0;
+                        trig <= 1'b1;
+                    end
+                end
+                STOP: begin
+                    tx_done_r <= 1'b1;
+                    state <= STOP;
+                    sclk <= 1'b0;
+                    mosi_r <= 1'b0;
+                    cs_r <= 1'b1;
+                end
+                default: begin
+                    state <= STOP;
+                end
+            endcase // case
+        end // reset
+    end // enable
+end // always
     
 endmodule

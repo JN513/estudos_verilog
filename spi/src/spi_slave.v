@@ -1,41 +1,37 @@
 module spi_slave (
-    input wire reset,
-    input wire clk,
-    output wire spi_clk, // clk da spi
-    input wire mosi, // master output slave input
-    output wire miso, // master input slave output
-    input wire cs, // chip select
-    input [5:0] input_data, 
-    output [5:0] output_data
+    input clk,
+    input reset,
+    output [7:0] rx_data,
+    input [7:0] tx_data,
+
+    //spi
+    input spi_clk,
+    output miso,
+    input mosi,
+    input cs
 );
 
-reg [5:0] shift_register, data;
-reg shift_enable;
+reg[4:0] cont = 0;
+reg [7:0]rx_data_r;
 
-reg [5:0] counter = 0;
-
-always @(posedge clk) begin
-  if (!reset) begin
-    shift_register <= 6'b0;
-    shift_enable <= 1'b0;
-  end else begin
-    if (!spi_clk) begin
-      counter <= counter + 1;
-      if(counter == 6) begin
-           data <= shift_register;
-           counter <= 0;
-      end
-
-      // Se o sinal SCLK estiver ativo, fazemos a captura do dado do mestre
-      shift_register <= {mosi, shift_register[5:1]}; // Shift in dados do mestre
-      shift_enable <= 1'b1;
-    end else begin
-      shift_enable <= 1'b0;
-    end
-  end
+initial begin
+    rx_data_r = 8'b0;
 end
 
-//assign miso = shift_enable ? shift_register[7] : 1'b0; // MISO é o bit mais significativo do registrador de deslocamento
-assign output_data = data;
+always @(posedge clk ) begin
+    if(!cs || cs) begin
+        if(cont == 0)begin
+            rx_data_r[cont] <= mosi;
+            cont <= cont + 1;
+        end else if(cont < 8) begin 
+            rx_data_r[cont] <= mosi;
+            cont <= cont + 1;
+        end else if(cont >= 8) begin
+            cont <= 0;
+        end
+    end    
+end
+
+assign rx_data = rx_data_r;
     
 endmodule
