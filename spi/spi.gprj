@@ -7,6 +7,7 @@
     <FileList>
         <File path="src/main.v" type="file.verilog" enable="1"/>
         <File path="src/spi_master.v" type="file.verilog" enable="1"/>
+        <File path="src/spi_slave.v" type="file.verilog" enable="1"/>
         <File path="src/pinout.cst" type="file.cst" enable="1"/>
     </FileList>
 </Project>

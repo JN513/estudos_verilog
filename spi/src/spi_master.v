@@ -7,141 +7,88 @@ module spi_master (
     output cs, // chip select
     input [7:0] tx_data, 
     output [7:0] rx_data,
-    input start_tx, // Sinal para iniciar a transmissão
     output tx_done,  // Sinal indicando que a transmissão está concluída
     output rx_done
 );
 
-reg [3:0] state; // estados da maquina
+parameter START = 0, WORK = 1, STOP = 2;
+reg [1:0] state = STOP; // estados da maquina
 
-reg sclk, mosi_r, cs_r, tx_done_r, trig;
+reg mosi_r, cs_r, tx_done_r, rx_done_r, clk_r;
 
-assign spi_clk = clk;
+//assign spi_clk = clk_r;
+assign spi_clk = ~clk;
+reg [3:0] cont = 0, cont_rx = 0;
+reg [7:0] tx_data_r, rx_data_r;
+
 assign mosi = mosi_r;
 assign cs = cs_r;
 assign tx_done = tx_done_r;
+assign rx_data = rx_data_r;
+assign rx_done = rx_done_r;
 
-parameter START = 0, S0 = 1, S1 = 2, S2 = 3, S3 = 4, S4 = 5, S5 = 6, S6 = 7, S7 = 8, STOP = 9;
+initial begin
+    cs_r = 1;
+    tx_done_r = 1;
+    rx_done_r = 1;
+    mosi_r = 0;
+    clk_r = 1;
+end
 
 always @(posedge clk) begin
-    if(start_tx == 1'b1) begin
-        if (reset == 1'b1) begin
-            state <= START;
-            sclk <= 1'b0;
-            mosi_r <= 1'b0;
-            tx_done_r <= 1'b0;
-            cs_r <= 1'b1;
+    if (~reset) begin
+        state <= START;
+        mosi_r <= 1'b0;
+        tx_done_r <= 1'b0;
+        cs_r <= 1'b1;
+        tx_data_r <= tx_data;
+    end else begin
+        case (state)
+            START: begin
+                tx_done_r <= 1'b0;
+                cs_r <= 1'b0;
+                mosi_r <= tx_data_r[7];
+                tx_data_r <= {tx_data_r[6:0], 1'b0};
+                state <= WORK;
+                cont <= 0;
+            end
+            WORK: begin
+                if(cont == 6)
+                    state <= STOP;
+                tx_data_r <= {tx_data_r[6:0], 1'b0};
+                mosi_r <= tx_data_r[7];
+                cont <= cont + 1;
+            end
+            STOP: begin
+                tx_done_r <= 1'b1;
+                state <= STOP;
+                mosi_r <= 1'b0;
+                cs_r <= 1'b1;
+            end
+            default: begin
+                state <= STOP;
+            end
+        endcase // case
+    end // reset
+end // always
+
+always @(posedge spi_clk ) begin
+    if (~reset) begin
+        cont_rx <= 0;
+    end else if(~cs) begin
+        if(cont_rx == 0)begin
+            rx_done_r <= 0;
+            rx_data_r <= {miso, rx_data_r[7:1]};
+            cont_rx <= cont_rx + 1;
+        end else if(cont_rx < 8) begin 
+            rx_data_r <= {miso, rx_data_r[7:1]};
+            cont_rx <= cont_rx + 1;
+            if(cont_rx == 7)
+                rx_done_r <= 1;
         end else begin
-            case (state)
-                START: begin
-                    tx_done_r <= 1'b0;
-                    state <= S0;
-                    trig <= 1'b1;
-                    sclk <= 1'b0;
-                    mosi_r <= 1'b0;
-                    cs_r <= 1'b0;
-                end
-                S0: begin
-                    if(trig == 1'b1) begin
-                        sclk <= 'b1;
-                        mosi_r <= tx_data[7];
-                        trig <= 1'b0;
-                    end else begin
-                        state <= S1;
-                        sclk <= 1'b0;
-                        trig <= 1'b1;
-                    end
-                end
-                S1: begin
-                    if(trig == 1'b1) begin
-                        sclk <= 'b1;
-                        mosi_r <= tx_data[6];
-                        trig <= 1'b0;
-                    end else begin
-                        state <= S2;
-                        sclk <= 1'b0;
-                        trig <= 1'b1;
-                    end
-                end
-                S2: begin
-                    if(trig == 1'b1) begin
-                        sclk <= 'b1;
-                        mosi_r <= tx_data[5];
-                        trig <= 1'b0;
-                    end else begin
-                        state <= S3;
-                        sclk <= 1'b0;
-                        trig <= 1'b1;
-                    end
-                end 
-                S3: begin
-                    if(trig == 1'b1) begin
-                        sclk <= 'b1;
-                        mosi_r <= tx_data[4];
-                        trig <= 1'b0;
-                    end else begin
-                        state <= S4;
-                        sclk <= 1'b0;
-                        trig <= 1'b1;
-                    end
-                end
-                S4: begin
-                    if(trig == 1'b1) begin
-                        sclk <= 'b1;
-                        mosi_r <= tx_data[3];
-                        trig <= 1'b0;
-                    end else begin
-                        state <= S5;
-                        sclk <= 1'b0;
-                        trig <= 1'b1;
-                    end
-                end
-                S5: begin
-                    if(trig == 1'b1) begin
-                        sclk <= 'b1;
-                        mosi_r <= tx_data[2];
-                        trig <= 1'b0;
-                    end else begin
-                        state <= S6;
-                        sclk <= 1'b0;
-                        trig <= 1'b1;
-                    end
-                end
-                S6: begin
-                    if(trig == 1'b1) begin
-                        sclk <= 'b1;
-                        mosi_r <= tx_data[1];
-                        trig <= 1'b0;
-                    end else begin
-                        state <= S7;
-                        sclk <= 1'b0;
-                        trig <= 1'b1;
-                    end
-                end
-                S7: begin
-                    if(trig == 1'b1) begin
-                        sclk <= 'b1;
-                        mosi_r <= tx_data[0];
-                        trig <= 1'b0;
-                    end else begin
-                        state <= STOP;
-                        sclk <= 1'b0;
-                        trig <= 1'b1;
-                    end
-                end
-                STOP: begin
-                    tx_done_r <= 1'b1;
-                    state <= STOP;
-                    sclk <= 1'b0;
-                    mosi_r <= 1'b0;
-                    cs_r <= 1'b1;
-                end
-                default: begin
-                    state <= STOP;
-                end
-            endcase // case
-        end // reset
-    end // enable
+            cont_rx <= 0;
+        end
+    end   // cs
 end // always
     
 endmodule
