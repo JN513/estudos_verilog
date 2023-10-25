@@ -6,7 +6,7 @@ reg clk, reset = 1, reset_slave = 1;
 
 wire mosi, sclk, cs, tx_d, rx_d, miso, slave_d, slave_tx_d;
 
-reg [7:0] data = 8'b10110101, data_slave = 8'b10101101;
+reg [7:0] data = 8'b10110111, data_slave = 8'b10101101;
 wire [7:0] rx_data, rx_master_data;
 
 spi_master u1(
@@ -51,12 +51,49 @@ initial begin
     reset = 1;
     reset_slave = 1;
 
-    #20
+    #40
 
     $display("TX Done %b", slave_tx_d);
     $display("RX Done %b", slave_d);
     $display("RX data %b", rx_data);
     $display("RX data master %b", rx_master_data);
+
+    $display("");
+
+    $display("Segundo round");
+
+    data = 8'b11111011;
+    data_slave = 8'b10001001;
+
+    $display("TX master %b", data);
+    $display("TX slave data %b", data_slave);
+
+    $display("");
+
+    $display("RX master %b", rx_master_data);
+    $display("RX slave data %b", rx_data);
+
+    $display("");
+
+    #2
+
+    //reset_slave = 0;
+    reset = 0;
+
+    #2
+
+    reset = 1;
+    //reset_slave = 1;
+
+    #40
+
+    $display("TX master %b", data);
+    $display("TX slave data %b", data_slave);
+
+    $display("");
+
+    $display("RX master %b", rx_master_data);
+    $display("RX slave data %b", rx_data);
 
     $finish;
 

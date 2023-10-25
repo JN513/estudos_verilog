@@ -1,6 +1,6 @@
 {
     "name": "spi",
-    "board": "tangnano20k",
+    "board": "tangnano9k",
     "constraintsFile": "src/pinout.cst",
     "includedFiles": [
         "src/spi_master.v",

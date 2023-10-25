@@ -13,9 +13,9 @@ module spi_slave (
     output tx_done
 );
 
+reg rx_done_r, tx_done_r, miso_r;
 reg[3:0] cont, cont_tx;
 reg [7:0]rx_data_r, tx_data_r;
-reg rx_done_r, tx_done_r, miso_r;
 
 assign rx_done = rx_done_r;
 assign tx_done = tx_done_r;
@@ -38,53 +38,38 @@ always @(posedge spi_clk ) begin
     end else if(~cs) begin
         if(cont == 0)begin
             rx_done_r <= 0;
-            rx_data_r <= {mosi, rx_data_r[7:1]};
+            rx_data_r <= {rx_data_r[6:0], mosi};
             cont <= cont + 1;
         end else if(cont < 8) begin 
-            rx_data_r <= {mosi, rx_data_r[7:1]};
+            rx_data_r <= {rx_data_r[6:0], mosi};
             cont <= cont + 1;
             if(cont == 7)
                 rx_done_r <= 1;
         end else begin
             cont <= 0;
         end
-    end    
-end
-
-
-/* o yosys suporta isso daqui, mas o gowin não, 
-    ai fiz a cambiarra de verificar o reset em 2 lugares
-always @(negedge reset) begin
-    if(~reset) begin
-        cont <= 0;
-        cont_tx <= 0;
-        rx_data_r <= 8'b0;
     end
 end
-*/
+
+
 always @(posedge clk ) begin
     if(~reset) begin // isso e uma gambiarra por causa do sintetizador
         cont_tx <= 0;
         miso_r <= 0;
+        //tx_data_r <= tx_data; // com o auto reset isso daqui some
+        tx_done_r <= 0;
     end else if(~cs) begin
-        if(cont_tx == 0)begin
+        if(cont_tx == 0) begin // isso de certa forma faz um autoreset, não sei  se e legal, mas achei util
             tx_data_r = tx_data;
-            tx_done_r <= 0;
+        end
+        if(cont_tx < 8) begin //semaphore
             miso_r <= tx_data_r[7];
-            tx_data_r <= {tx_data_r[6:0], 1'b0};
-            //miso_r <= 1;
-            cont_tx <= cont_tx + 1;
-        end else if(cont_tx < 8) begin 
-            tx_data_r <= {tx_data_r[6:0], 1'b0};
-            miso_r <= tx_data_r[7];
-            //miso_r <= 1;
-            cont_tx <= cont_tx + 1;
-            if(cont_tx == 7) begin
-                tx_done_r <= 1;
-                cont_tx <= 0;
-                miso_r <= 0;
-            end 
+            if(spi_clk ) begin
+                tx_data_r <= {tx_data_r[6:0], 1'b0};
+                cont_tx <= cont_tx + 1;
+            end
         end else begin
+            tx_done_r <= 1;
             cont_tx <= 0;
             miso_r <= 0;
         end
