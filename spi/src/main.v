@@ -69,7 +69,7 @@ always @(posedge clk) begin
         reset <= 0;
     end
 
-    if(btn1) begin
+    if(~btn1) begin // se for na 20 k remova o inverter
         last_signal_btn1 <= 1;
         if(last_signal_btn1) begin
             repeticoes_signal_btn1 <= repeticoes_signal_btn1 + 1;
@@ -82,7 +82,7 @@ always @(posedge clk) begin
         last_signal_btn1 <= 0;
     end
 
-    if(btn2) begin
+    if(~btn2) begin // se for na 20 k remova o inverter
         last_signal_btn2 <= 1;
         if(last_signal_btn2) begin
             repeticoes_signal_btn2 <= repeticoes_signal_btn2 + 1;

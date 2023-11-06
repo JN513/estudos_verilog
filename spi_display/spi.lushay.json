@@ -1,0 +1,9 @@
+{
+    "name": "spi",
+    "board": "tangnano9k",
+    "constraintsFile": "src/pinout9k.cst",
+    "includedFiles": [
+        "src/spi_master.v",
+        "src/main.v"
+    ]
+}

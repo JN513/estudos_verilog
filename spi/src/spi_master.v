@@ -1,4 +1,4 @@
-module #(CLK_DIV=2) spi_master (
+module spi_master (
     input clk,
     input reset,
     output spi_clk, // clk da spi
@@ -12,11 +12,14 @@ module #(CLK_DIV=2) spi_master (
 );
 
 parameter START = 0, WORK = 1, STOP = 2;
+parameter CLK_DIV = 270;
 
 reg mosi_r, cs_r, tx_done_r, rx_done_r, clk_r, trig;
 reg [1:0] state = STOP; // estados da maquina
 reg [3:0] cont = 0, cont_rx = 0;
 reg [7:0] tx_data_r, rx_data_r;
+
+reg [9:0]clk_counter = 0;
 
 assign spi_clk = clk_r;
 assign mosi = mosi_r;
@@ -31,6 +34,7 @@ initial begin
     rx_done_r = 1;
     mosi_r = 0;
     clk_r = 0;
+    clk_counter = 0;
 end
 
 always @(posedge clk) begin
@@ -40,30 +44,35 @@ always @(posedge clk) begin
         tx_done_r <= 1'b0;
         cs_r <= 1'b1;
         tx_data_r <= tx_data;
-        clk_r = 0;
+        clk_r <= 0;
     end else begin
         case (state)
             START: begin
-                tx_done_r <= 1'b0;
                 cs_r <= 1'b0;
-                mosi_r <= 1'b0;
                 state <= WORK;
                 trig <= 1'b1;
                 cont <= 0;
+                clk_counter <= 0;
             end
             WORK: begin
-                if(trig == 1'b1) begin
+                if(clk_counter == 0) begin
                     tx_data_r <= {tx_data_r[6:0], 1'b0};
                     mosi_r <= tx_data_r[7];
                     cont <= cont + 1;
-                    trig <= 1'b0;
                     clk_r <= 1'b0; // eu inverti, para subida do clock, bater com o meio do sinal antes tava 1
-                end else begin
-                    if(cont == 8)
-                        state <= STOP;
+                    clk_counter <= clk_counter + 1;
+                end else if(clk_counter == CLK_DIV /2) begin 
                     clk_r <= 1'b1;
-                    trig <= 1'b1;
-                end                
+                    clk_counter <= clk_counter + 1;
+                end else begin
+                    clk_counter <= clk_counter + 1;
+                end
+
+                if(clk_counter == CLK_DIV - 1) begin
+                    if(cont == 8)
+                        state <= STOP; 
+                    clk_counter <= 0;
+                end
             end
             STOP: begin
                 if(trig) begin // faz o cs subir um ciclo de clock depois

@@ -13,8 +13,8 @@ module spi_slave (
     output tx_done
 );
 
-reg rx_done_r, tx_done_r, miso_r;
-reg[3:0] cont, cont_tx;
+reg rx_done_r, tx_done_r, miso_r, autoreset;
+reg[3:0] cont, cont_tx, cont_sclk;
 reg [7:0]rx_data_r, tx_data_r;
 
 assign rx_done = rx_done_r;
@@ -29,6 +29,8 @@ initial begin
     miso_r = 0;
     cont_tx = 0;
     tx_data_r = 0;
+    cont_sclk = 0;
+    autoreset = 0;
 end
 
 always @(posedge spi_clk ) begin
@@ -43,11 +45,21 @@ always @(posedge spi_clk ) begin
         end else if(cont < 8) begin 
             rx_data_r <= {rx_data_r[6:0], mosi};
             cont <= cont + 1;
-            if(cont == 7)
+            if(cont == 7) begin
                 rx_done_r <= 1;
+            end
         end else begin
             cont <= 0;
         end
+    end
+end
+
+always @(negedge spi_clk ) begin
+    if(cont == 8) begin 
+        cont_sclk <= 0;
+    end
+    else begin
+        cont_sclk = cont_sclk + 1;
     end
 end
 
@@ -56,15 +68,14 @@ always @(posedge clk ) begin
     if(~reset) begin // isso e uma gambiarra por causa do sintetizador
         cont_tx <= 0;
         miso_r <= 0;
-        //tx_data_r <= tx_data; // com o auto reset isso daqui some
-        tx_done_r <= 0;
     end else if(~cs) begin
         if(cont_tx == 0) begin // isso de certa forma faz um autoreset, não sei  se e legal, mas achei util
             tx_data_r = tx_data;
+            tx_done_r <= 0;
         end
         if(cont_tx < 8) begin //semaphore
             miso_r <= tx_data_r[7];
-            if(spi_clk ) begin
+            if(cont_tx < cont_sclk ) begin
                 tx_data_r <= {tx_data_r[6:0], 1'b0};
                 cont_tx <= cont_tx + 1;
             end
@@ -73,7 +84,13 @@ always @(posedge clk ) begin
             cont_tx <= 0;
             miso_r <= 0;
         end
-    end   
+    end else begin
+        miso_r <= 0;
+        tx_done_r <= 1;
+        if(cont_sclk == 0) begin
+            cont_tx <= 0;
+        end
+    end
 end
 
 assign rx_data = rx_data_r;
