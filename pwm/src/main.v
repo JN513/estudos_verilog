@@ -1,8 +1,9 @@
 module top(
     input clk,
-    output led[5:0],
+    output [5:0]led,
     input btn1,
-    input btn2
+    input btn2,
+    output servo
 );
 
 parameter NUM_TICK_1S = 27000000;
@@ -43,5 +44,6 @@ assign led[2] = ~pwm;
 assign led[3] = ~pwm;
 assign led[4] = ~pwm;
 assign led[5] = ~pwm;
+assign servo = pwm;
 
 endmodule

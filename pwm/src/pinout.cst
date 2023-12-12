@@ -1,3 +1,6 @@
+IO_LOC  "servo" 72;
+IO_PORT "servo" DRIVE=8 IO_TYPE=LVCMOS18;
+
 IO_LOC  "clk" 4;
 IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;
 

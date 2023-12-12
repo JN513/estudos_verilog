@@ -1,7 +1,7 @@
 module pwm #(
     parameter CLK_NUM = 27000000,
     parameter PRECISION = 8, // maxima e 9 bits
-    parameter PWM_CLK = 5000,
+    parameter PWM_CLK = 980,
     parameter CLK_DIV_COUNTER = CLK_NUM / (PWM_CLK * (2 ** PRECISION ))
 )(
     input clk,

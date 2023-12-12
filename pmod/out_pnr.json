@@ -1,0 +1,773 @@
+{
+  "creator": "Next Generation Place and Route (Version nextpnr-0.6-151-g6d932245)",
+  "modules": {
+    "top": {
+      "settings": {
+        "route": "00000000000000000000000000000001",
+        "router/tmg_ripup": "0 ",
+        "router1/useEstimate": "1 ",
+        "router1/fullCleanupReroute": "1 ",
+        "router1/cleanupReroute": "1 ",
+        "router1/maxIterCnt": "200",
+        "arch.disable_router_lutperm": "0 ",
+        "place": "00000000000000000000000000000001",
+        "placer1/startTemp": "1.000000",
+        "placer1/minBelsForGridPick": "64",
+        "placer1/netShareWeight": "0.000000",
+        "placer1/constraintWeight": "10.000000",
+        "placerHeap/cellPlacementTimeout": "8",
+        "placerHeap/netShareWeight": "0.000000",
+        "placerHeap/parallelRefine": "0 ",
+        "pack": "00000000000000000000000000000001",
+        "input/lpf": "pinout.lpf",
+        "synth": "00000000000000000000000000000001",
+        "placerHeap/timingWeight": "10 ",
+        "placerHeap/criticalityExponent": "2",
+        "placerHeap/beta": "0.900000",
+        "placerHeap/alpha": "0.100000",
+        "seed": "01010011010110001001011110010011",
+        "arch.type": "lfe5u_45f",
+        "arch.name": "ARCHNAME",
+        "router": "router1",
+        "placer": "heap",
+        "auto_freq": "00000000000000000000000000000000",
+        "slack_redist_iter": "00000000000000000000000000000000",
+        "timing_driven": "00000000000000000000000000000001",
+        "target_freq": "12000000.000000",
+        "arch.speed": "6",
+        "arch.package": "CABGA381"
+      },
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "top.v:1.1-21.10"
+      },
+      "ports": {
+        "s": {
+          "direction": "input",
+          "bits": [ 2092, 2090, 2088, 2086, 2084, 2082, 2080, 2077 ]
+        },
+        "led": {
+          "direction": "output",
+          "bits": [ 2078, 2081, 2083, 2085, 2087, 2089, 2091, 2093 ]
+        },
+        "clk": {
+          "direction": "input",
+          "bits": [ 2070 ]
+        }
+      },
+      "cells": {
+        "clk$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "INPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X0/Y68/PIOC",
+            "LOC": "P3",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [ 2129 ],
+            "T": [  ],
+            "I": [  ],
+            "B": [ 2070 ]
+          }
+        },
+        "led[0]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "OUTPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X15/Y71/PIOB",
+            "LOC": "R3",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [  ],
+            "T": [  ],
+            "I": [ 2127 ],
+            "B": [ 2078 ]
+          }
+        },
+        "led[1]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "OUTPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X0/Y59/PIOA",
+            "LOC": "M4",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [  ],
+            "T": [  ],
+            "I": [ 2125 ],
+            "B": [ 2081 ]
+          }
+        },
+        "led[2]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "OUTPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X0/Y44/PIOD",
+            "LOC": "L5",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [  ],
+            "T": [  ],
+            "I": [ 2123 ],
+            "B": [ 2083 ]
+          }
+        },
+        "led[3]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "OUTPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X90/Y20/PIOD",
+            "LOC": "J16",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [  ],
+            "T": [  ],
+            "I": [ 2120 ],
+            "B": [ 2085 ]
+          }
+        },
+        "led[4]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "OUTPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X0/Y59/PIOC",
+            "LOC": "N4",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [  ],
+            "T": [  ],
+            "I": [ 2118 ],
+            "B": [ 2087 ]
+          }
+        },
+        "led[5]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "OUTPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X0/Y44/PIOC",
+            "LOC": "L4",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [  ],
+            "T": [  ],
+            "I": [ 2116 ],
+            "B": [ 2089 ]
+          }
+        },
+        "led[6]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "OUTPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X90/Y44/PIOB",
+            "LOC": "P16",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [  ],
+            "T": [  ],
+            "I": [ 2114 ],
+            "B": [ 2091 ]
+          }
+        },
+        "led[7]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "OUTPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X90/Y29/PIOC",
+            "LOC": "J18",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [  ],
+            "T": [  ],
+            "I": [ 2110 ],
+            "B": [ 2093 ]
+          }
+        },
+        "s[7]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "INPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X0/Y65/PIOA",
+            "LOC": "N2",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [ 2127 ],
+            "T": [  ],
+            "I": [  ],
+            "B": [ 2077 ]
+          }
+        },
+        "s[6]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "INPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X6/Y71/PIOB",
+            "LOC": "V1",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [ 2125 ],
+            "T": [  ],
+            "I": [  ],
+            "B": [ 2080 ]
+          }
+        },
+        "s[5]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "INPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X9/Y71/PIOB",
+            "LOC": "Y2",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [ 2123 ],
+            "T": [  ],
+            "I": [  ],
+            "B": [ 2082 ]
+          }
+        },
+        "s[4]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "INPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X4/Y71/PIOB",
+            "LOC": "T1",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [ 2120 ],
+            "T": [  ],
+            "I": [  ],
+            "B": [ 2084 ]
+          }
+        },
+        "s[3]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "INPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X0/Y65/PIOB",
+            "LOC": "M1",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [ 2118 ],
+            "T": [  ],
+            "I": [  ],
+            "B": [ 2086 ]
+          }
+        },
+        "s[2]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "INPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X9/Y71/PIOA",
+            "LOC": "W1",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [ 2116 ],
+            "T": [  ],
+            "I": [  ],
+            "B": [ 2088 ]
+          }
+        },
+        "s[1]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "INPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X6/Y71/PIOA",
+            "LOC": "U1",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [ 2114 ],
+            "T": [  ],
+            "I": [  ],
+            "B": [ 2090 ]
+          }
+        },
+        "s[0]$tr_io": {
+          "hide_name": 0,
+          "type": "TRELLIS_IO",
+          "parameters": {
+            "DATAMUX_MDDR": "PADDO",
+            "DATAMUX_ODDR": "PADDO",
+            "DIR": "INPUT"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000110",
+            "NEXTPNR_BEL": "X4/Y71/PIOA",
+            "LOC": "R1",
+            "IO_TYPE": "LVCMOS33"
+          },
+          "port_directions": {
+            "IOLTO": "input",
+            "IOLDO": "input",
+            "O": "output",
+            "T": "input",
+            "I": "input",
+            "B": "inout"
+          },
+          "connections": {
+            "IOLTO": [  ],
+            "IOLDO": [  ],
+            "O": [ 2110 ],
+            "T": [  ],
+            "I": [  ],
+            "B": [ 2092 ]
+          }
+        }
+      },
+      "netnames": {
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2070 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "led[0]": {
+          "hide_name": 0,
+          "bits": [ 2078 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "led[1]": {
+          "hide_name": 0,
+          "bits": [ 2081 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "led[2]": {
+          "hide_name": 0,
+          "bits": [ 2083 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "led[3]": {
+          "hide_name": 0,
+          "bits": [ 2085 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "led[4]": {
+          "hide_name": 0,
+          "bits": [ 2087 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "led[5]": {
+          "hide_name": 0,
+          "bits": [ 2089 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "led[6]": {
+          "hide_name": 0,
+          "bits": [ 2091 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "led[7]": {
+          "hide_name": 0,
+          "bits": [ 2093 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "s[7]": {
+          "hide_name": 0,
+          "bits": [ 2077 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "s[6]": {
+          "hide_name": 0,
+          "bits": [ 2080 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "s[5]": {
+          "hide_name": 0,
+          "bits": [ 2082 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "s[4]": {
+          "hide_name": 0,
+          "bits": [ 2084 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "s[3]": {
+          "hide_name": 0,
+          "bits": [ 2086 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "s[2]": {
+          "hide_name": 0,
+          "bits": [ 2088 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "s[1]": {
+          "hide_name": 0,
+          "bits": [ 2090 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "s[0]": {
+          "hide_name": 0,
+          "bits": [ 2092 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "led[7]$TRELLIS_IO_OUT": {
+          "hide_name": 0,
+          "bits": [ 2110 ] ,
+          "attributes": {
+            "ROUTING": "X4/Y71/JPADDIA_PIO;;1;X4/Y71/JDIA;X4/Y71/0_0_JPADDIA_PIO->0_0_JDIA;1;X4/Y70/JQ0;X4/Y71/0_0_JDIA->0_-1_JQ0;1;X4/Y67/V06N0003;X4/Y70/0_0_JQ0->0_-3_V06N0003;1;X4/Y61/V06N0103;X4/Y64/0_3_V06N0003->0_-3_V06N0103;1;X4/Y55/V06N0203;X4/Y58/0_3_V06N0103->0_-3_V06N0203;1;X4/Y49/V06N0303;X4/Y52/0_3_V06N0203->0_-3_V06N0303;1;X4/Y43/V06N0003;X4/Y46/0_3_V06N0303->0_-3_V06N0003;1;X4/Y37/V06N0003;X4/Y40/0_3_V06N0003->0_-3_V06N0003;1;X4/Y31/V06N0103;X4/Y34/0_3_V06N0003->0_-3_V06N0103;1;X7/Y28/H06E0103;X4/Y28/0_3_V06N0103->3_0_H06E0103;1;X13/Y28/H06E0203;X10/Y28/-3_0_H06E0103->3_0_H06E0203;1;X19/Y28/H06E0203;X16/Y28/-3_0_H06E0203->3_0_H06E0203;1;X25/Y28/H06E0303;X22/Y28/-3_0_H06E0203->3_0_H06E0303;1;X31/Y28/H06E0003;X28/Y28/-3_0_H06E0303->3_0_H06E0003;1;X37/Y28/H06E0003;X34/Y28/-3_0_H06E0003->3_0_H06E0003;1;X43/Y28/H06E0003;X40/Y28/-3_0_H06E0003->3_0_H06E0003;1;X49/Y28/H06E0003;X46/Y28/-3_0_H06E0003->3_0_H06E0003;1;X55/Y28/H06E0003;X52/Y28/-3_0_H06E0003->3_0_H06E0003;1;X61/Y28/H06E0003;X58/Y28/-3_0_H06E0003->3_0_H06E0003;1;X67/Y28/H06E0003;X64/Y28/-3_0_H06E0003->3_0_H06E0003;1;X73/Y28/H06E0103;X70/Y28/-3_0_H06E0003->3_0_H06E0103;1;X79/Y28/H06E0203;X76/Y28/-3_0_H06E0103->3_0_H06E0203;1;X85/Y28/H06E0303;X82/Y28/-3_0_H06E0203->3_0_H06E0303;1;X88/Y31/V06S0303;X88/Y28/-3_0_H06E0303->0_3_V06S0303;1;X89/Y31/H02E0501;X88/Y31/0_0_V06S0303->1_0_H02E0501;1;X89/Y31/JA0;X89/Y31/0_0_H02E0501->0_0_JA0;1;X90/Y29/JPADDOC;X90/Y29/-1_2_JA0->0_0_JPADDOC;1;X90/Y29/PADDOC_PIO;X90/Y29/0_0_JPADDOC->0_0_PADDOC_PIO;1"
+          }
+        },
+        "led[6]$TRELLIS_IO_OUT": {
+          "hide_name": 0,
+          "bits": [ 2114 ] ,
+          "attributes": {
+            "ROUTING": "X6/Y71/JPADDIA_PIO;;1;X6/Y71/JDIA;X6/Y71/0_0_JPADDIA_PIO->0_0_JDIA;1;X6/Y70/JQ0;X6/Y71/0_0_JDIA->0_-1_JQ0;1;X6/Y67/V06N0003;X6/Y70/0_0_JQ0->0_-3_V06N0003;1;X6/Y61/V06N0103;X6/Y64/0_3_V06N0003->0_-3_V06N0103;1;X6/Y55/V06N0103;X6/Y58/0_3_V06N0103->0_-3_V06N0103;1;X6/Y49/V06N0203;X6/Y52/0_3_V06N0103->0_-3_V06N0203;1;X9/Y46/H06E0203;X6/Y46/0_3_V06N0203->3_0_H06E0203;1;X15/Y46/H06E0203;X12/Y46/-3_0_H06E0203->3_0_H06E0203;1;X21/Y46/H06E0203;X18/Y46/-3_0_H06E0203->3_0_H06E0203;1;X27/Y46/H06E0203;X24/Y46/-3_0_H06E0203->3_0_H06E0203;1;X33/Y46/H06E0203;X30/Y46/-3_0_H06E0203->3_0_H06E0203;1;X39/Y46/H06E0303;X36/Y46/-3_0_H06E0203->3_0_H06E0303;1;X45/Y46/H06E0303;X42/Y46/-3_0_H06E0303->3_0_H06E0303;1;X51/Y46/H06E0003;X48/Y46/-3_0_H06E0303->3_0_H06E0003;1;X57/Y46/H06E0003;X54/Y46/-3_0_H06E0003->3_0_H06E0003;1;X63/Y46/H06E0103;X60/Y46/-3_0_H06E0003->3_0_H06E0103;1;X69/Y46/H06E0203;X66/Y46/-3_0_H06E0103->3_0_H06E0203;1;X75/Y46/H06E0303;X72/Y46/-3_0_H06E0203->3_0_H06E0303;1;X81/Y46/H06E0003;X78/Y46/-3_0_H06E0303->3_0_H06E0003;1;X87/Y46/H06E0103;X84/Y46/-3_0_H06E0003->3_0_H06E0103;1;X87/Y45/V02N0201;X87/Y46/0_0_H06E0103->0_-1_V02N0201;1;X88/Y44/H02E0201;X87/Y44/0_1_V02N0201->1_0_H02E0201;1;X89/Y44/V00T0000;X89/Y44/-1_0_H02E0201->0_0_V00T0000;1;X89/Y44/JA3;X89/Y44/0_0_V00T0000->0_0_JA3;1;X90/Y44/JPADDOB;X90/Y44/-1_0_JA3->0_0_JPADDOB;1;X90/Y44/PADDOB_PIO;X90/Y44/0_0_JPADDOB->0_0_PADDOB_PIO;1"
+          }
+        },
+        "led[5]$TRELLIS_IO_OUT": {
+          "hide_name": 0,
+          "bits": [ 2116 ] ,
+          "attributes": {
+            "ROUTING": "X9/Y71/JPADDIA_PIO;;1;X9/Y71/JDIA;X9/Y71/0_0_JPADDIA_PIO->0_0_JDIA;1;X9/Y70/JQ0;X9/Y71/0_0_JDIA->0_-1_JQ0;1;X6/Y70/H06W0003;X9/Y70/0_0_JQ0->-3_0_H06W0003;1;X3/Y67/V06N0003;X3/Y70/3_0_H06W0003->0_-3_V06N0003;1;X3/Y61/V06N0103;X3/Y64/0_3_V06N0003->0_-3_V06N0103;1;X3/Y55/V06N0103;X3/Y58/0_3_V06N0103->0_-3_V06N0103;1;X3/Y49/V06N0203;X3/Y52/0_3_V06N0103->0_-3_V06N0203;1;X2/Y46/H02W0701;X3/Y46/0_3_V06N0203->-1_0_H02W0701;1;X1/Y46/JA0;X1/Y46/1_0_H02W0701->0_0_JA0;1;X0/Y44/JPADDOC;X0/Y44/1_2_JA0->0_0_JPADDOC;1;X0/Y44/PADDOC_PIO;X0/Y44/0_0_JPADDOC->0_0_PADDOC_PIO;1"
+          }
+        },
+        "led[4]$TRELLIS_IO_OUT": {
+          "hide_name": 0,
+          "bits": [ 2118 ] ,
+          "attributes": {
+            "ROUTING": "X0/Y65/JPADDIB_PIO;;1;X0/Y65/JDIB;X0/Y65/0_0_JPADDIB_PIO->0_0_JDIB;1;X1/Y65/JQ5;X0/Y65/0_0_JDIB->1_0_JQ5;1;X1/Y62/V06N0303;X1/Y65/0_0_JQ5->0_-3_V06N0303;1;X1/Y60/V02S0501;X1/Y59/0_3_V06N0303->0_1_V02S0501;1;X1/Y61/JA0;X1/Y61/0_-1_V02S0501->0_0_JA0;1;X0/Y59/JPADDOC;X0/Y59/1_2_JA0->0_0_JPADDOC;1;X0/Y59/PADDOC_PIO;X0/Y59/0_0_JPADDOC->0_0_PADDOC_PIO;1"
+          }
+        },
+        "led[3]$TRELLIS_IO_OUT": {
+          "hide_name": 0,
+          "bits": [ 2120 ] ,
+          "attributes": {
+            "ROUTING": "X4/Y71/JPADDIB_PIO;;1;X4/Y71/JDIB;X4/Y71/0_0_JPADDIB_PIO->0_0_JDIB;1;X5/Y70/JQ0;X4/Y71/0_0_JDIB->1_-1_JQ0;1;X5/Y67/V06N0003;X5/Y70/0_0_JQ0->0_-3_V06N0003;1;X5/Y61/V06N0003;X5/Y64/0_3_V06N0003->0_-3_V06N0003;1;X5/Y55/V06N0003;X5/Y58/0_3_V06N0003->0_-3_V06N0003;1;X5/Y49/V06N0103;X5/Y52/0_3_V06N0003->0_-3_V06N0103;1;X5/Y43/V06N0203;X5/Y46/0_3_V06N0103->0_-3_V06N0203;1;X5/Y37/V06N0203;X5/Y40/0_3_V06N0203->0_-3_V06N0203;1;X5/Y31/V06N0303;X5/Y34/0_3_V06N0203->0_-3_V06N0303;1;X5/Y25/V06N0003;X5/Y28/0_3_V06N0303->0_-3_V06N0003;1;X8/Y22/H06E0003;X5/Y22/0_3_V06N0003->3_0_H06E0003;1;X14/Y22/H06E0103;X11/Y22/-3_0_H06E0003->3_0_H06E0103;1;X20/Y22/H06E0103;X17/Y22/-3_0_H06E0103->3_0_H06E0103;1;X26/Y22/H06E0103;X23/Y22/-3_0_H06E0103->3_0_H06E0103;1;X32/Y22/H06E0103;X29/Y22/-3_0_H06E0103->3_0_H06E0103;1;X38/Y22/H06E0203;X35/Y22/-3_0_H06E0103->3_0_H06E0203;1;X44/Y22/H06E0303;X41/Y22/-3_0_H06E0203->3_0_H06E0303;1;X50/Y22/H06E0003;X47/Y22/-3_0_H06E0303->3_0_H06E0003;1;X56/Y22/H06E0003;X53/Y22/-3_0_H06E0003->3_0_H06E0003;1;X62/Y22/H06E0103;X59/Y22/-3_0_H06E0003->3_0_H06E0103;1;X68/Y22/H06E0203;X65/Y22/-3_0_H06E0103->3_0_H06E0203;1;X74/Y22/H06E0203;X71/Y22/-3_0_H06E0203->3_0_H06E0203;1;X80/Y22/H06E0203;X77/Y22/-3_0_H06E0203->3_0_H06E0203;1;X86/Y22/H06E0303;X83/Y22/-3_0_H06E0203->3_0_H06E0303;1;X89/Y22/H01W0100;X89/Y22/-3_0_H06E0303->0_0_H01W0100;1;X89/Y22/H02E0501;X88/Y22/1_0_H01W0100->1_0_H02E0501;1;X89/Y22/JA3;X89/Y22/0_0_H02E0501->0_0_JA3;1;X90/Y20/JPADDOD;X90/Y20/-1_2_JA3->0_0_JPADDOD;1;X90/Y20/PADDOD_PIO;X90/Y20/0_0_JPADDOD->0_0_PADDOD_PIO;1"
+          }
+        },
+        "led[2]$TRELLIS_IO_OUT": {
+          "hide_name": 0,
+          "bits": [ 2123 ] ,
+          "attributes": {
+            "ROUTING": "X9/Y71/JPADDIB_PIO;;1;X9/Y71/JDIB;X9/Y71/0_0_JPADDIB_PIO->0_0_JDIB;1;X10/Y70/JQ0;X9/Y71/0_0_JDIB->1_-1_JQ0;1;X7/Y70/H06W0003;X10/Y70/0_0_JQ0->-3_0_H06W0003;1;X1/Y70/H06W0103;X4/Y70/3_0_H06W0003->-3_0_H06W0103;1;X1/Y67/V06N0103;X1/Y70/0_0_H06W0103->0_-3_V06N0103;1;X1/Y61/V06N0203;X1/Y64/0_3_V06N0103->0_-3_V06N0203;1;X1/Y55/V06N0203;X1/Y58/0_3_V06N0203->0_-3_V06N0203;1;X1/Y49/V06N0303;X1/Y52/0_3_V06N0203->0_-3_V06N0303;1;X1/Y46/V01S0100;X1/Y46/0_3_V06N0303->0_0_V01S0100;1;X1/Y46/V02N0501;X1/Y47/0_-1_V01S0100->0_-1_V02N0501;1;X1/Y46/JA3;X1/Y46/0_0_V02N0501->0_0_JA3;1;X0/Y44/JPADDOD;X0/Y44/1_2_JA3->0_0_JPADDOD;1;X0/Y44/PADDOD_PIO;X0/Y44/0_0_JPADDOD->0_0_PADDOD_PIO;1"
+          }
+        },
+        "led[1]$TRELLIS_IO_OUT": {
+          "hide_name": 0,
+          "bits": [ 2125 ] ,
+          "attributes": {
+            "ROUTING": "X6/Y71/JPADDIB_PIO;;1;X6/Y71/JDIB;X6/Y71/0_0_JPADDIB_PIO->0_0_JDIB;1;X7/Y70/JQ0;X6/Y71/0_0_JDIB->1_-1_JQ0;1;X4/Y70/H06W0003;X7/Y70/0_0_JQ0->-3_0_H06W0003;1;X1/Y67/V06N0003;X1/Y70/3_0_H06W0003->0_-3_V06N0003;1;X1/Y61/V06N0103;X1/Y64/0_3_V06N0003->0_-3_V06N0103;1;X1/Y59/V02S0201;X1/Y58/0_3_V06N0103->0_1_V02S0201;1;X1/Y59/H00L0000;X1/Y59/0_0_V02S0201->0_0_H00L0000;1;X1/Y59/JA0;X1/Y59/0_0_H00L0000->0_0_JA0;1;X0/Y59/JPADDOA;X0/Y59/1_0_JA0->0_0_JPADDOA;1;X0/Y59/PADDOA_PIO;X0/Y59/0_0_JPADDOA->0_0_PADDOA_PIO;1"
+          }
+        },
+        "led[0]$TRELLIS_IO_OUT": {
+          "hide_name": 0,
+          "bits": [ 2127 ] ,
+          "attributes": {
+            "ROUTING": "X0/Y65/JPADDIA_PIO;;1;X0/Y65/JDIA;X0/Y65/0_0_JPADDIA_PIO->0_0_JDIA;1;X1/Y65/JF5;X0/Y65/0_0_JDIA->1_0_JF5;1;X1/Y68/V06S0303;X1/Y65/0_0_JF5->0_3_V06S0303;1;X4/Y68/H06E0303;X1/Y68/0_0_V06S0303->3_0_H06E0303;1;X10/Y68/H06E0303;X7/Y68/-3_0_H06E0303->3_0_H06E0303;1;X16/Y68/H06E0303;X13/Y68/-3_0_H06E0303->3_0_H06E0303;1;X16/Y69/V02S0501;X16/Y68/0_0_H06E0303->0_1_V02S0501;1;X16/Y70/JA0;X16/Y70/0_-1_V02S0501->0_0_JA0;1;X15/Y71/JPADDOB;X15/Y71/1_-1_JA0->0_0_JPADDOB;1;X15/Y71/PADDOB_PIO;X15/Y71/0_0_JPADDOB->0_0_PADDOB_PIO;1"
+          }
+        },
+        "clk$TRELLIS_IO_IN": {
+          "hide_name": 0,
+          "bits": [ 2129 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        }
+      }
+    }
+  }
+}

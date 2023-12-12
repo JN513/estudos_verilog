@@ -12,7 +12,7 @@ module spi_master (
 );
 
 parameter START = 0, WORK = 1, STOP = 2;
-parameter CLK_DIV = 270;
+parameter CLK_DIV = 2;
 
 reg mosi_r, cs_r, tx_done_r, rx_done_r, clk_r, trig;
 reg [1:0] state = STOP; // estados da maquina

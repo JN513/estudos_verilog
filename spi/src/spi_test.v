@@ -51,7 +51,7 @@ initial begin
     reset = 1;
     reset_slave = 1;
 
-    #5500 // a formula e div_clk * 40 
+    #200 // a formula e div_clk * 40 
 
     $display("TX Done %b", slave_tx_d);
     $display("RX Done %b", slave_d);
@@ -85,7 +85,7 @@ initial begin
     reset = 1;
     //reset_slave = 1;
 
-    #5500 // a formula e div_clk * 40 
+    #200 // a formula e div_clk * 40 
 
     $display("TX master %b", data);
     $display("TX slave data %b", data_slave);
