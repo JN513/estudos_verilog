@@ -1,1 +1,4 @@
 *.v linguist-language=Verilog
+*.V linguist-language=Verilog
+*.v linguist-language=verilog
+*.V linguist-language=verilog
